@@ -62,6 +62,17 @@ hr {
   cursor: pointer;
 }
 
+.primary-button:disabled,
+.secondary-button:disabled,
+.primary-button:disabled:hover,
+.secondary-button:disabled:hover {
+  background-color: #7a7a7a;
+  color: #f2f3f4;
+  border: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
 .primary-button {
   background-color: cadetblue;
   color: #f2f3f4;
