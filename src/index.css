@@ -21,7 +21,6 @@ hr {
 }
 
 .title {
-  font-size: 2rem;
   color: #333;
   text-align: center;
 }
@@ -31,6 +30,7 @@ hr {
 }
 
 .txt-input {
+  background-color: #f2f3f4;
   padding: 10px 20px;
   border-radius: 10px;
 }

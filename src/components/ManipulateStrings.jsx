@@ -15,6 +15,7 @@ export const ManipulateStrings = () => {
   const removeString = () => {
     setText(text.slice(0, -1));
   };
+  
   return (
     <div className="card">
       <h1 className="title">
