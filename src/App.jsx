@@ -4,6 +4,7 @@ import { UserProfile } from "./components/UserProfile";
 import { Counter } from "./components/Counter";
 import { ManipulateStrings } from "./components/ManipulateStrings";
 import { ProductInfo } from "./components/ProductInfo";
+import { ListOfProducts } from "./components/ListOfProducts";
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
       <Counter />
       <ManipulateStrings />
       <ProductInfo />
+      <ListOfProducts />
     </div>
   );
 };
