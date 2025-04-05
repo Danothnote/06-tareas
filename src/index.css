@@ -1,0 +1,46 @@
+.title {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.txt-input {
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.txt-input:focus {
+  outline-color: #2a9d8f;
+}
+
+.primary-button,
+.secondary-button {
+  margin-block: 20px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.primary-button {
+  background-color: cadetblue;
+  color: #f2f3f4;
+}
+
+.primary-button:hover {
+  background-color: #2a9d8f;
+  box-shadow: 2px 2px 5px #2a9d8f;
+}
+
+.secondary-button {
+  background-color: #f2f3f4;
+  color: #2a9d8f;
+  border: 2px solid #2a9d8f;
+}
+
+.secondary-button:hover {
+  background-color: #2a9d8f;
+  border-color: black;
+  color: #f2f3f4;
+  box-shadow: 2px 2px 5px #2a9d8f;
+}
