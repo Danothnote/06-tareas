@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const CalculateDiscount = () => {
   const [price, setPrice] = useState(0);
   const [discountPercentage, setDiscountPercentage] = useState(0);
-  const [discountedPrice, setDiscountedPrice] = useState(0);
+  const [data, setData] = useState({
+    price: 0,
+    discountPercentage: 0,
+    discountedPrice: 0,
+  });
+
+  const refPrice = useRef();
+  const refDiscount = useRef();
 
   const calculateDiscount = (price, discountPercentage) => {
     if (price <= 0 || discountPercentage < 0) {
@@ -12,7 +19,11 @@ export const CalculateDiscount = () => {
     }
     const discountAmount = (price * discountPercentage) / 100;
     const discounted = price - discountAmount;
-    setDiscountedPrice(discounted);
+    setData({
+      price: price,
+      discountPercentage: discountPercentage,
+      discountedPrice: discounted,
+    });
   };
 
   const handlePriceChange = () => {
@@ -23,39 +34,69 @@ export const CalculateDiscount = () => {
     setDiscountPercentage(Number(event.target.value));
   };
 
+  const resetForm = () => {
+    refPrice.current.value = "";
+    setPrice(0);
+    refDiscount.current.value = "";
+    setDiscountPercentage(0);
+    setData({ price: 0, discountPercentage: 0, discountedPrice: 0 });
+  };
+
   return (
-    <>
-      <h1 className="title">Calculate Discount</h1>
-      <h3 className="label">Precio:</h3>
-      <input
-        className="txt-input"
-        type="number"
-        name="price"
-        id="price"
-        onInput={handlePriceChange}
-        min="0"
-      />
-      <h3 className="label">Descuento (%):</h3>
-      <input
-        className="txt-input"
-        type="number"
-        name="discountPercentage"
-        id="discountPercentage"
-        onInput={handleDiscountChange}
-        min="0"
-      />
-      <div>
+    <div className="card">
+      <h1 className="title">
+        Ejercicio 1:
+        <br />
+        Calculate Discount
+      </h1>
+      <div className="form-container">
+        <h3>Precio:</h3>
+        <input
+          ref={refPrice}
+          className="txt-input"
+          type="number"
+          name="price"
+          id="price"
+          placeholder="Precio"
+          onInput={handlePriceChange}
+          min="0"
+        />
+        <h3>Descuento (%):</h3>
+        <input
+          ref={refDiscount}
+          className="txt-input"
+          type="number"
+          name="discountPercentage"
+          id="discountPercentage"
+          placeholder="Descuento (%)"
+          onInput={handleDiscountChange}
+          min="0"
+        />
+      </div>
+      <div className="buttons-container">
         <button
           className="primary-button"
           onClick={() => calculateDiscount(price, discountPercentage)}
         >
           Calcular descuento
         </button>
+        <button className="secondary-button" onClick={resetForm}>
+          Resetear
+        </button>
       </div>
-
-      <p className="label">Precio original: {price}</p>
-      <p className="label">Porcentaje de descuento: {discountPercentage}%</p>
-      <p className="label">Precio final: {discountedPrice}</p>
-    </>
+      <hr />
+      <div className="data-container">
+        <span className="label">Precio original: </span>
+        <span>{data.price}</span>
+      </div>
+      <div className="data-container">
+        <span className="label">Porcentaje de descuento: </span>{" "}
+        <span>{data.discountPercentage}%</span>
+      </div>
+      <div className="data-container">
+        <span className="label">Precio con descuento: </span>
+        <span>{data.discountedPrice}</span>
+      </div>
+    </div>
   );
 };

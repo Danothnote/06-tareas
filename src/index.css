@@ -1,7 +1,33 @@
+hr {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 20px;
+  padding: 20px;
+  width: 350px;
+  border-radius: 10px;
+  background-color: #eee;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 .title {
   font-size: 2rem;
   color: #333;
   text-align: center;
+}
+
+.form-container {
+  margin-inline: auto;
 }
 
 .txt-input {
@@ -13,9 +39,23 @@
   outline-color: #2a9d8f;
 }
 
+.data-container {
+  margin: 5px 20px;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-block: 30px;
+}
+
 .primary-button,
 .secondary-button {
-  margin-block: 20px;
+  margin: 10px;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 10px;
